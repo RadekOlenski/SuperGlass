@@ -8,7 +8,13 @@ public class PourTransition : MonoBehaviour
 
     public GameObject Bottle;
 
+    public AnglesController AnglesController;
+
     public Vector3 BottlePourPosition;
+
+    public bool PourStarted;
+
+    public bool PourEnding;
 
     #endregion
 
@@ -28,7 +34,7 @@ public class PourTransition : MonoBehaviour
     private float falloffAngle = 3f;
 
     // input smoothing, higher = faster
-    private float lerpSpeed = 5f;
+    private float lerpSpeed = 6f;
 
     private float outputLerp;
 
@@ -41,16 +47,13 @@ public class PourTransition : MonoBehaviour
 
     public void Start()
     {
-        this.bottleStartPosition = this.Bottle.transform.localPosition;
-        this.bottleDeltaPosition = this.BottlePourPosition - this.bottleStartPosition;
+        bottleStartPosition = Bottle.transform.localPosition;
+        bottleDeltaPosition = BottlePourPosition - bottleStartPosition;
     }
 
     public void Update()
     {
-        // if (Input.acceleration.y < 0f) return;
-        if (Math.Abs(Input.acceleration.z) > Math.Abs(Input.acceleration.x)
-            && Math.Abs(Input.acceleration.z) > Math.Abs(Input.acceleration.y)) return;
-
+        // Calculate z-axis rotation based on accelerometer input 
         float inputTiltAngle = Mathf.Clamp(Input.acceleration.normalized.x, -maxTiltDeviceAngle, maxTiltDeviceAngle);
         float outputAngle = Mathf.Pow(
                                 Mathf.Clamp(Mathf.Abs(inputTiltAngle) - deadzone, 0, maxTiltDeviceAngle)
@@ -62,15 +65,25 @@ public class PourTransition : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, angle);
 
+        // Change bottle position
         float maxPositionAngle = angle / 90f;
-
         if (angle > 0f)
         {
             Bottle.transform.localPosition = bottleStartPosition + (bottleDeltaPosition * maxPositionAngle);
+            if (angle >= this.AnglesController.PourStartAngle)
+            {
+                if (!PourStarted) PourStarted = true;
+            }
         }
         else
         {
             Bottle.transform.localPosition = bottleStartPosition;
+        }
+
+        if (PourStarted && angle < AnglesController.PourEndAngle)
+        {
+            PourEnding = true;
+            PourStarted = false;
         }
     }
 
