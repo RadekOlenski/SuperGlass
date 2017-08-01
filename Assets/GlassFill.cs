@@ -59,7 +59,13 @@ public class GlassFill : MonoBehaviour
             foam.transform.localPosition = Vector3.Lerp(startFoamPos, new Vector3(startFoamPos.x, startFoamPos.y + 59, startFoamPos.z), fillLevel);
             moreFoam.transform.localPosition = Vector3.Lerp(startFoamPos, new Vector3(startFoamPos.x, startFoamPos.y + 52, startFoamPos.z), fillLevel);
             timer += Time.deltaTime;
+
+            if (foamParticle.isPlaying)
+            {
+                foamParticle.Stop();
+            }
             return null;
+
         }
         else
         {
