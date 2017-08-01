@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 4319821411898366}
   - component: {fileID: 212373425264503134}
   - component: {fileID: 95027254865329218}
+  - component: {fileID: 114412894126202502}
   m_Layer: 0
   m_Name: Cap
   m_TagString: Untagged
@@ -250,7 +251,21 @@ MonoBehaviour:
   PourRotator: {fileID: 1861446732798304}
   Scores: {fileID: 11400000, guid: dc700fee202986340be8b596404c19d3, type: 2}
   ScoreText: {fileID: 0}
+  capController: {fileID: 114412894126202502}
+  restartButton: {fileID: 0}
   pourTransition: {fileID: 114802546630784288}
+--- !u!114 &114412894126202502
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1659930065934298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f61901f0cb6cd0441afe96bd6f1c0e30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 198302861841539366}
 --- !u!114 &114802546630784288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -284,10 +299,10 @@ ParticleSystem:
   m_GameObject: {fileID: 1256376286489244}
   serializedVersion: 5
   lengthInSec: 5
-  simulationSpeed: 1
+  simulationSpeed: 1.63
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -335,7 +350,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -955940227
+  randomSeed: -218341605
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -737,7 +752,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 2
       minScalar: 0
       maxCurve:
         serializedVersion: 2

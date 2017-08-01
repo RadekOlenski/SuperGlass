@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreCameraController : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class ScoreCameraController : MonoBehaviour
 
     public CapController capController;
 
+    public Button restartButton;
+
     [SerializeField]
     private PourTransition pourTransition;
 
@@ -32,6 +35,7 @@ public class ScoreCameraController : MonoBehaviour
     private Vector3 bottleStartPosition;
 
     private bool coroutineEnded;
+    
 
     public void Awake()
     {
@@ -77,8 +81,10 @@ public class ScoreCameraController : MonoBehaviour
         if (gainedScore <= this.Scores.scoreOverfilled)
         {
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowOverfilled(true);
+            SwipeController.Swipe -= Restart;
+            
             yield return new WaitForSeconds(1f);
-
+            restartButton.gameObject.SetActive(true);
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowScoreText(true, 0);
         }
         else if (gainedScore >= this.Scores.scorePerfectGlass)
