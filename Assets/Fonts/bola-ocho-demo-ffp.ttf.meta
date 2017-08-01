@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 3eb8e3399eb012f4b9b886a15b848738
+timeCreated: 1501601968
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Bola Ocho
+  fontNames:
+  - Bola Ocho
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

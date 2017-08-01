@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Name: Scores
   m_EditorClassIdentifier: 
   scorePerfectGlass: 100
+  scoreAlmostPerfect: 90
+  scoreTolerably: 70
+  scoreLame: 1
+  scoreOverfilled: 0
   fillSpeed: 0.25
   endFillSpeed: 0.05
   endFillTime: 1

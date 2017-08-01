@@ -8,6 +8,7 @@ public class AnglesController : ScriptableObject
 
     public float PourStartAngle = 85f;
     public float PourEndAngle = 60f;
+    public float CanvasDisableAngle = 30f;
 
 
 }

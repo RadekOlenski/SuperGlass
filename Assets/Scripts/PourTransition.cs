@@ -12,6 +12,10 @@ public class PourTransition : MonoBehaviour
 
     public Vector3 BottlePourPosition;
 
+    public Canvas GameCanvas;
+
+    public ScoreCameraController ScoreCameraController;
+
     public bool PourStarted;
 
     public bool PourEnding;
@@ -67,6 +71,15 @@ public class PourTransition : MonoBehaviour
 
         // Change bottle position
         float maxPositionAngle = angle / 90f;
+        if (angle >= this.AnglesController.CanvasDisableAngle)
+        {
+            this.GameCanvas.enabled = false;
+        }
+        else
+        {
+            this.GameCanvas.enabled = true;
+        }
+
         if (angle > 0f)
         {
             Bottle.transform.localPosition = bottleStartPosition + (bottleDeltaPosition * maxPositionAngle);
@@ -84,6 +97,8 @@ public class PourTransition : MonoBehaviour
         {
             PourEnding = true;
             PourStarted = false;
+            this.ScoreCameraController.enabled = true;
+            this.GameCanvas.enabled = true;
         }
     }
 

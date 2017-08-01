@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 87c75cd9a3af9a846a11dc9903a156bd
+timeCreated: 1501601812
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: The Bully_PersonalUseOnly
+  fontNames:
+  - The Bully_PersonalUseOnly
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
