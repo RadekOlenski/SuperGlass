@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour
 
     private float timer;
 
-    private float wait = 2;
+    private float wait = 1;
 
     private void Update()
     {

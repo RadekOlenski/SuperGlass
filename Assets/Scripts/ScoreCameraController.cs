@@ -137,7 +137,7 @@ public class ScoreCameraController : MonoBehaviour
         this.camera.transform.DOMove(this.cameraStartPosition, 1f);
         this.SummaryPanel.GetComponent<SummaryPanelController>().HideAll();
         this.SummaryPanel.SetActive(false);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         this.pourTransition.enabled = true;
         this.Glass.GetComponent<GlassFill>().ResetFill();
         capController.Reset();
