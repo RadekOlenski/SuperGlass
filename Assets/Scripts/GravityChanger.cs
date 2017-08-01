@@ -10,7 +10,5 @@ public class GravityChanger : MonoBehaviour
 	{
 	    gravity = Input.acceleration;
 		Physics.gravity = new Vector3(gravity.x, gravity.y) * gravityMultiplier;
-
-        Debug.Log("acceleration: " + gravity + ", gravity: " + Physics.gravity);
 	}
 }
