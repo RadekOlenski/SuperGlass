@@ -20,6 +20,8 @@ public class ScoreCameraController : MonoBehaviour
 
     public ScoreText ScoreText;
 
+    public CapController capController;
+
     [SerializeField]
     private PourTransition pourTransition;
 
@@ -132,6 +134,7 @@ public class ScoreCameraController : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         this.pourTransition.enabled = true;
         this.Glass.GetComponent<GlassFill>().ResetFill();
+        capController.Reset();
         this.enabled = false;
     }
 }

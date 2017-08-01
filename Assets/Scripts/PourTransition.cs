@@ -85,7 +85,7 @@ public class PourTransition : MonoBehaviour
             Bottle.transform.localPosition = bottleStartPosition + (bottleDeltaPosition * maxPositionAngle);
             if (angle >= this.AnglesController.PourStartAngle)
             {
-                if (!PourStarted) PourStarted = true;
+                if (CapController.isBottleOpened && !PourStarted) PourStarted = true;
             }
         }
         else
@@ -93,7 +93,7 @@ public class PourTransition : MonoBehaviour
             Bottle.transform.localPosition = bottleStartPosition;
         }
 
-        if (PourStarted && angle < AnglesController.PourEndAngle)
+        if (CapController.isBottleOpened && PourStarted && angle < AnglesController.PourEndAngle)
         {
             PourEnding = true;
             PourStarted = false;

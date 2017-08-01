@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        if (pt.PourStarted)
+        if (CapController.isBottleOpened &&  pt.PourStarted)
         {
             scoreAdded = false;
             if (timer >= wait) gf.StartFill(scores.fillSpeed);
