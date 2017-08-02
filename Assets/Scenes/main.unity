@@ -148,29 +148,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &149550861 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1072509803726156, guid: 805fa1639f8e025469f3420accaf8e03,
-    type: 2}
-  m_PrefabInternal: {fileID: 755521975}
---- !u!114 &149550868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 149550861}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b528503490dd02f41b240e272240bf96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Glass: {fileID: 1499562393}
-  Bottle: {fileID: 924160914}
-  SummaryPanel: {fileID: 1760339028}
-  PourRotator: {fileID: 450402649}
-  Scores: {fileID: 11400000, guid: dc700fee202986340be8b596404c19d3, type: 2}
-  ScoreText: {fileID: 1077714400}
-  pourTransition: {fileID: 227120358}
 --- !u!198 &219525581 stripped
 ParticleSystem:
   m_PrefabParentObject: {fileID: 198182718174843598, guid: f12e9010f9101ab44a630bea74540ca8,
@@ -182,11 +159,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 755521975}
   m_Script: {fileID: 11500000, guid: 62fbe120b33b58041b83a6d60e04b15e, type: 3}
---- !u!1 &450402649 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1861446732798304, guid: 805fa1639f8e025469f3420accaf8e03,
-    type: 2}
-  m_PrefabInternal: {fileID: 755521975}
 --- !u!1001 &656807176
 Prefab:
   m_ObjectHideFlags: 0
@@ -247,25 +219,58 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4716278436738186, guid: 805fa1639f8e025469f3420accaf8e03, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -22.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4716278436738186, guid: 805fa1639f8e025469f3420accaf8e03, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4716278436738186, guid: 805fa1639f8e025469f3420accaf8e03, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4716278436738186, guid: 805fa1639f8e025469f3420accaf8e03, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4716278436738186, guid: 805fa1639f8e025469f3420accaf8e03, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4716278436738186, guid: 805fa1639f8e025469f3420accaf8e03, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4716278436738186, guid: 805fa1639f8e025469f3420accaf8e03, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4716278436738186, guid: 805fa1639f8e025469f3420accaf8e03, type: 2}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 4865524991715898, guid: 805fa1639f8e025469f3420accaf8e03, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 10
-      objectReference: {fileID: 0}
+    - target: {fileID: 114291148520157338, guid: 805fa1639f8e025469f3420accaf8e03,
+        type: 2}
+      propertyPath: Glass
+      value: 
+      objectReference: {fileID: 1499562393}
+    - target: {fileID: 114291148520157338, guid: 805fa1639f8e025469f3420accaf8e03,
+        type: 2}
+      propertyPath: SummaryPanel
+      value: 
+      objectReference: {fileID: 1760339028}
+    - target: {fileID: 114291148520157338, guid: 805fa1639f8e025469f3420accaf8e03,
+        type: 2}
+      propertyPath: ScoreText
+      value: 
+      objectReference: {fileID: 1077714400}
     - target: {fileID: 114802546630784288, guid: 805fa1639f8e025469f3420accaf8e03,
         type: 2}
       propertyPath: GameCanvas
       value: 
       objectReference: {fileID: 800921773}
-    - target: {fileID: 114802546630784288, guid: 805fa1639f8e025469f3420accaf8e03,
-        type: 2}
-      propertyPath: ScoreCameraController
-      value: 
-      objectReference: {fileID: 149550868}
-    m_RemovedComponents:
-    - {fileID: 114614621793471342, guid: 805fa1639f8e025469f3420accaf8e03, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 805fa1639f8e025469f3420accaf8e03, type: 2}
   m_IsPrefabParent: 0
 --- !u!223 &800921773 stripped
@@ -320,11 +325,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f12e9010f9101ab44a630bea74540ca8, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &924160914 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1182473950368412, guid: 805fa1639f8e025469f3420accaf8e03,
-    type: 2}
-  m_PrefabInternal: {fileID: 755521975}
 --- !u!114 &1077714400 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114120099819354116, guid: 17ddcf32ff8ab81499bca3a9771748b6,

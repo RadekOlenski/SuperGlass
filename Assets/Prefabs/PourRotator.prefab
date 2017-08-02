@@ -23,8 +23,7 @@ GameObject:
   - component: {fileID: 92556040659621628}
   - component: {fileID: 124407987016656276}
   - component: {fileID: 81773530813977422}
-  - component: {fileID: 114614621793471342}
-  - component: {fileID: 114928052330766732}
+  - component: {fileID: 114291148520157338}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -234,37 +233,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114614621793471342
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1072509803726156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  profile: {fileID: 0}
---- !u!114 &114802546630784288
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1861446732798304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62fbe120b33b58041b83a6d60e04b15e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Bottle: {fileID: 0}
-  AnglesController: {fileID: 0}
-  BottlePourPosition: {x: 0, y: 0, z: 0}
-  GameCanvas: {fileID: 0}
-  ScoreCameraController: {fileID: 114928052330766732}
-  PourStarted: 0
-  PourEnding: 0
---- !u!114 &114928052330766732
+--- !u!114 &114291148520157338
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -278,7 +247,28 @@ MonoBehaviour:
   Glass: {fileID: 0}
   Bottle: {fileID: 1182473950368412}
   SummaryPanel: {fileID: 0}
+  PourRotator: {fileID: 1861446732798304}
   Scores: {fileID: 11400000, guid: dc700fee202986340be8b596404c19d3, type: 2}
+  ScoreText: {fileID: 0}
+  pourTransition: {fileID: 114802546630784288}
+--- !u!114 &114802546630784288
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1861446732798304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62fbe120b33b58041b83a6d60e04b15e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bottle: {fileID: 1182473950368412}
+  AnglesController: {fileID: 11400000, guid: 2edb56c9ae09c284f8abd2a0fc9aca5b, type: 2}
+  BottlePourPosition: {x: 37, y: 15, z: 0}
+  GameCanvas: {fileID: 0}
+  ScoreCameraController: {fileID: 114291148520157338}
+  PourStarted: 0
+  PourEnding: 0
 --- !u!124 &124407987016656276
 Behaviour:
   m_ObjectHideFlags: 1
