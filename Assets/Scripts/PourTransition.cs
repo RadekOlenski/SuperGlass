@@ -1,5 +1,7 @@
 ﻿using System;
 
+using DG.Tweening;
+
 using UnityEngine;
 
 public class PourTransition : MonoBehaviour
@@ -7,6 +9,7 @@ public class PourTransition : MonoBehaviour
     #region Public Fields
 
     public GameObject Bottle;
+    public GameObject Glass;
 
     public AnglesController AnglesController;
 

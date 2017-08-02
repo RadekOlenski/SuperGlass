@@ -358,6 +358,7 @@ MonoBehaviour:
   restartButton: {fileID: 0}
   FoamAnimator: {fileID: 0}
   pourTransition: {fileID: 114802546630784288}
+  CameraStartPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &114412894126202502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -371,6 +372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particle: {fileID: 198302861841539366}
   AudioController: {fileID: 114106100202862148}
+  Camera: {fileID: 1072509803726156}
 --- !u!114 &114802546630784288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -383,6 +385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bottle: {fileID: 1182473950368412}
+  Glass: {fileID: 0}
   AnglesController: {fileID: 11400000, guid: 2edb56c9ae09c284f8abd2a0fc9aca5b, type: 2}
   BottlePourPosition: {x: 37, y: 15, z: 0}
   GameCanvas: {fileID: 0}

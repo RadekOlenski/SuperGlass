@@ -34,7 +34,7 @@ public class ScoreCameraController : MonoBehaviour
 
     private Camera camera;
 
-    private Vector3 cameraStartPosition;
+    public Vector3 CameraStartPosition;
 
     private Vector3 bottleStartPosition;
 
@@ -44,7 +44,7 @@ public class ScoreCameraController : MonoBehaviour
     public void Awake()
     {
         this.camera = this.GetComponent<Camera>();
-        this.cameraStartPosition = this.camera.transform.position;
+        this.CameraStartPosition = this.camera.transform.position;
 
         this.bottleStartPosition = this.Bottle.transform.position;
     }
@@ -66,17 +66,13 @@ public class ScoreCameraController : MonoBehaviour
     {
         this.ScoreText.enabled = false;
 
-        this.camera.transform.DOMove(this.cameraStartPosition, 0.5f);
         this.Bottle.transform.DOMove(this.bottleStartPosition, 0.5f);
-        yield return new WaitForSeconds(0.5f);
-
         Vector3 glassPosition = new Vector3(
             this.Glass.transform.position.x,
-            cameraStartPosition.y,
-            this.cameraStartPosition.z);
+            this.CameraStartPosition.y,
+            this.CameraStartPosition.z);
         this.camera.transform.DOMove(glassPosition, 0.5f);
-
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
 
         this.SummaryPanel.SetActive(true);
 
@@ -88,7 +84,7 @@ public class ScoreCameraController : MonoBehaviour
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowOverfilled(true);
             
             AudioController.PlayOverfilled();
-            this.camera.transform.DOShakePosition(3f, 35f);
+            this.camera.transform.DOShakePosition(1f, 35f);
             SwipeController.Swipe -= Restart;
             
             yield return new WaitForSeconds(1f);
@@ -99,7 +95,7 @@ public class ScoreCameraController : MonoBehaviour
         {
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowSuperGlass(true);
             AudioController.PlaySuperglass();
-            this.camera.transform.DOShakePosition(1.5f, 30f);
+            this.camera.transform.DOShakePosition(0.5f, 30f);
             yield return new WaitForSeconds(0.5f);
 
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowScoreText(true, 100);
@@ -110,7 +106,7 @@ public class ScoreCameraController : MonoBehaviour
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowAlmostPerfect(true);
             
             AudioController.PlayAlmostPerfect();
-            this.camera.transform.DOShakePosition(1f, 20f);
+            this.camera.transform.DOShakePosition(0.5f, 20f);
             yield return new WaitForSeconds(0.5f);
 
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowScoreText(true, gainedScore);
@@ -121,7 +117,7 @@ public class ScoreCameraController : MonoBehaviour
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowTolerably(true);
             
             AudioController.PlayTolerable();
-            this.camera.transform.DOShakePosition(1f, 10f);
+            this.camera.transform.DOShakePosition(0.2f, 10f);
             yield return new WaitForSeconds(0.5f);
 
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowScoreText(true, gainedScore);
@@ -132,7 +128,7 @@ public class ScoreCameraController : MonoBehaviour
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowLame(true);
             
             AudioController.PlayLame();
-            this.camera.transform.DOShakePosition(1f, 10f);
+            this.camera.transform.DOShakePosition(0.2f, 10f);
 
             yield return new WaitForSeconds(0.5f);
 
@@ -162,7 +158,7 @@ public class ScoreCameraController : MonoBehaviour
 
     private IEnumerator RestartCoroutine()
     {
-        this.camera.transform.DOMove(this.cameraStartPosition, 1f);
+        this.camera.transform.DOMove(this.CameraStartPosition, 1f);
         this.SummaryPanel.GetComponent<SummaryPanelController>().HideAll();
         this.SummaryPanel.SetActive(false);
         FoamAnimator.SetTrigger("Exit");

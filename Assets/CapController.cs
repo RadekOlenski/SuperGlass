@@ -35,7 +35,7 @@ public class CapController : MonoBehaviour
             if (!this.audioPlayed)
             {
                 AudioController.PlayBottleOpen();
-                this.Camera.transform.DOShakePosition(0.5f, 3f);
+                this.Camera.transform.DOShakePosition(0.3f, 3f);
                 this.audioPlayed = true;
             }
         }

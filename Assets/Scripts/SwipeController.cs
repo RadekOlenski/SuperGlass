@@ -29,6 +29,7 @@ public class SwipeController : MonoBehaviour
     public void Update()
     {
         if (Input.touchCount == 0) return;
+
         if (Input.GetTouch(0).deltaPosition.sqrMagnitude != 0)
         {
             if (swiping == false)
