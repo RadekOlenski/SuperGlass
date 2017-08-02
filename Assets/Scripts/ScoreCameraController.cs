@@ -84,7 +84,7 @@ public class ScoreCameraController : MonoBehaviour
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowOverfilled(true);
             
             AudioController.PlayOverfilled();
-            this.camera.transform.DOShakePosition(1f, 35f);
+            this.camera.transform.DOShakePosition(1f, 15f);
             SwipeController.Swipe -= Restart;
             
             yield return new WaitForSeconds(1f);
@@ -95,7 +95,7 @@ public class ScoreCameraController : MonoBehaviour
         {
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowSuperGlass(true);
             AudioController.PlaySuperglass();
-            this.camera.transform.DOShakePosition(0.5f, 30f);
+            this.camera.transform.DOShakePosition(0.5f, 10f);
             yield return new WaitForSeconds(0.5f);
 
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowScoreText(true, 100);
@@ -106,7 +106,7 @@ public class ScoreCameraController : MonoBehaviour
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowAlmostPerfect(true);
             
             AudioController.PlayAlmostPerfect();
-            this.camera.transform.DOShakePosition(0.5f, 20f);
+            this.camera.transform.DOShakePosition(0.5f, 5f);
             yield return new WaitForSeconds(0.5f);
 
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowScoreText(true, gainedScore);
@@ -117,7 +117,7 @@ public class ScoreCameraController : MonoBehaviour
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowTolerably(true);
             
             AudioController.PlayTolerable();
-            this.camera.transform.DOShakePosition(0.2f, 10f);
+            this.camera.transform.DOShakePosition(0.2f, 5f);
             yield return new WaitForSeconds(0.5f);
 
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowScoreText(true, gainedScore);
@@ -128,7 +128,7 @@ public class ScoreCameraController : MonoBehaviour
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowLame(true);
             
             AudioController.PlayLame();
-            this.camera.transform.DOShakePosition(0.2f, 10f);
+            this.camera.transform.DOShakePosition(0.2f, 5f);
 
             yield return new WaitForSeconds(0.5f);
 
