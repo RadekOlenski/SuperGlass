@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 124407987016656276}
   - component: {fileID: 81773530813977422}
   - component: {fileID: 114291148520157338}
+  - component: {fileID: 82703804879752424}
+  - component: {fileID: 114106100202862148}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -210,6 +212,86 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1072509803726156}
   m_Enabled: 1
+--- !u!82 &82703804879752424
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1072509803726156}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: d9ba546ad744d23489a6ef372d19712a, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!92 &92556040659621628
 Behaviour:
   m_ObjectHideFlags: 1
@@ -234,6 +316,24 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114106100202862148
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1072509803726156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d31dc3a92e504a741bb5882cfbc514ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioSource: {fileID: 82703804879752424}
+  BottleOpen: {fileID: 8300000, guid: d9ba546ad744d23489a6ef372d19712a, type: 3}
+  BottleFill: {fileID: 8300000, guid: 261455210cd8d4a468fcd7af41f9c0d4, type: 3}
+  BottleOverfill: {fileID: 8300000, guid: 283ec0761b320394889329169dc657d8, type: 3}
+  Superglass: {fileID: 8300000, guid: 1dd25fe107e885a4683c7e1ca1ea9859, type: 3}
+  Overfilled: {fileID: 8300000, guid: 5c21465066621044f93741401e1f35e2, type: 3}
+  Lame: {fileID: 8300000, guid: 214d05a5e1bd070439bf5769e5692e35, type: 3}
 --- !u!114 &114291148520157338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -245,6 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b528503490dd02f41b240e272240bf96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioController: {fileID: 114106100202862148}
   Glass: {fileID: 0}
   Bottle: {fileID: 1182473950368412}
   SummaryPanel: {fileID: 0}
@@ -266,6 +367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particle: {fileID: 198302861841539366}
+  AudioController: {fileID: 114106100202862148}
 --- !u!114 &114802546630784288
 MonoBehaviour:
   m_ObjectHideFlags: 1

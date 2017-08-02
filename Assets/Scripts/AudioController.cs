@@ -11,6 +11,9 @@ public class AudioController : MonoBehaviour
     public AudioClip BottleFill;
     public AudioClip BottleOverfill;
     public AudioClip Superglass;
+    public AudioClip Overfilled;
+    public AudioClip Lame;
+    public AudioClip Tolerable;
 
     public void PlayBottleOpen()
     {
@@ -33,6 +36,24 @@ public class AudioController : MonoBehaviour
     public void PlaySuperglass()
     {
         this.AudioSource.clip = this.Superglass;
+        this.AudioSource.Play();
+    }
+
+    public void PlayOverfilled()
+    {
+        this.AudioSource.clip = this.Overfilled;
+        this.AudioSource.Play();
+    }
+
+    public void PlayLame()
+    {
+        this.AudioSource.clip = this.Lame;
+        this.AudioSource.Play();
+    }
+
+    public void PlayTolerable()
+    {
+        this.AudioSource.clip = this.Tolerable;
         this.AudioSource.Play();
     }
 

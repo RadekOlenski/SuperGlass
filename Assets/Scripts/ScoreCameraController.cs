@@ -83,6 +83,7 @@ public class ScoreCameraController : MonoBehaviour
         if (gainedScore <= this.Scores.scoreOverfilled)
         {
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowOverfilled(true);
+            AudioController.PlayOverfilled();
             SwipeController.Swipe -= Restart;
             
             yield return new WaitForSeconds(1f);
@@ -107,6 +108,7 @@ public class ScoreCameraController : MonoBehaviour
         else if (gainedScore >= this.Scores.scoreTolerably)
         {
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowTolerably(true);
+            AudioController.PlayTolerable();
             yield return new WaitForSeconds(0.5f);
 
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowScoreText(true, gainedScore);
@@ -114,6 +116,7 @@ public class ScoreCameraController : MonoBehaviour
         else if (gainedScore >= this.Scores.scoreLame)
         {
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowLame(true);
+            AudioController.PlayLame();
             yield return new WaitForSeconds(0.5f);
 
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowScoreText(true, 1);
@@ -140,10 +143,10 @@ public class ScoreCameraController : MonoBehaviour
         this.camera.transform.DOMove(this.cameraStartPosition, 1f);
         this.SummaryPanel.GetComponent<SummaryPanelController>().HideAll();
         this.SummaryPanel.SetActive(false);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
+        capController.Reset();
         this.pourTransition.enabled = true;
         this.Glass.GetComponent<GlassFill>().ResetFill();
-        capController.Reset();
         this.enabled = false;
     }
 }
