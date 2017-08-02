@@ -38,7 +38,7 @@ public class PourTransition : MonoBehaviour
     private float falloffAngle = 3f;
 
     // input smoothing, higher = faster
-    private float lerpSpeed = 6f;
+    private float lerpSpeed = 10f;
 
     private float outputLerp;
 
