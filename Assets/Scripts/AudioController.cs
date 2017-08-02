@@ -10,6 +10,7 @@ public class AudioController : MonoBehaviour
     public AudioClip BottleOpen;
     public AudioClip BottleFill;
     public AudioClip BottleOverfill;
+    public AudioClip Superglass;
 
     public void PlayBottleOpen()
     {
@@ -26,6 +27,12 @@ public class AudioController : MonoBehaviour
     public void PlayBottleOverfill()
     {
         this.AudioSource.clip = this.BottleOverfill;
+        this.AudioSource.Play();
+    }
+
+    public void PlaySuperglass()
+    {
+        this.AudioSource.clip = this.Superglass;
         this.AudioSource.Play();
     }
 

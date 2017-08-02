@@ -9,6 +9,8 @@ using UnityEngine.UI;
 
 public class ScoreCameraController : MonoBehaviour
 {
+
+    public AudioController AudioController;
     public GameObject Glass;
 
     public GameObject Bottle;
@@ -62,17 +64,17 @@ public class ScoreCameraController : MonoBehaviour
     {
         this.ScoreText.enabled = false;
 
-        this.camera.transform.DOMove(this.cameraStartPosition, 1f);
-        this.Bottle.transform.DOMove(this.bottleStartPosition, 1f);
+        this.camera.transform.DOMove(this.cameraStartPosition, 0.5f);
+        this.Bottle.transform.DOMove(this.bottleStartPosition, 0.5f);
         yield return new WaitForSeconds(1f);
 
         Vector3 glassPosition = new Vector3(
             this.Glass.transform.position.x,
             cameraStartPosition.y,
             this.cameraStartPosition.z);
-        this.camera.transform.DOMove(glassPosition, 1f);
+        this.camera.transform.DOMove(glassPosition, 0.5f);
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
 
         this.SummaryPanel.SetActive(true);
 
@@ -90,33 +92,34 @@ public class ScoreCameraController : MonoBehaviour
         else if (gainedScore >= this.Scores.scorePerfectGlass)
         {
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowSuperGlass(true);
-            yield return new WaitForSeconds(1f);
+            AudioController.PlaySuperglass();
+            yield return new WaitForSeconds(0.5f);
 
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowScoreText(true, 100);
         }
         else if (gainedScore >= this.Scores.scoreAlmostPerfect)
         {
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowAlmostPerfect(true);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
 
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowScoreText(true, gainedScore);
         }
         else if (gainedScore >= this.Scores.scoreTolerably)
         {
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowTolerably(true);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
 
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowScoreText(true, gainedScore);
         }
         else if (gainedScore >= this.Scores.scoreLame)
         {
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowLame(true);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
 
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowScoreText(true, 1);
         }
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
 
         this.ScoreText.enabled = true;
 
