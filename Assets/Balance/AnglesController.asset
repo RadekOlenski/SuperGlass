@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Name: AnglesController
   m_EditorClassIdentifier: 
   PourStartAngle: 85
-  PourEndAngle: 60
+  PourEndAngle: 80
+  CanvasDisableAngle: 30

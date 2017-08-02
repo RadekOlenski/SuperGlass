@@ -1,5 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+
+using DG.Tweening;
+
 using UnityEngine;
 
 public class CapController : MonoBehaviour
@@ -8,6 +11,7 @@ public class CapController : MonoBehaviour
     public ParticleSystem particle;
 
     public AudioController AudioController;
+    public GameObject Camera;
 
     private bool audioPlayed;
 
@@ -31,6 +35,7 @@ public class CapController : MonoBehaviour
             if (!this.audioPlayed)
             {
                 AudioController.PlayBottleOpen();
+                this.Camera.transform.DOShakePosition(0.5f, 3f);
                 this.audioPlayed = true;
             }
         }

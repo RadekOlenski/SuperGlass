@@ -68,7 +68,7 @@ public class ScoreCameraController : MonoBehaviour
 
         this.camera.transform.DOMove(this.cameraStartPosition, 0.5f);
         this.Bottle.transform.DOMove(this.bottleStartPosition, 0.5f);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
 
         Vector3 glassPosition = new Vector3(
             this.Glass.transform.position.x,
@@ -88,6 +88,7 @@ public class ScoreCameraController : MonoBehaviour
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowOverfilled(true);
             
             AudioController.PlayOverfilled();
+            this.camera.transform.DOShakePosition(3f, 35f);
             SwipeController.Swipe -= Restart;
             
             yield return new WaitForSeconds(1f);
@@ -98,6 +99,7 @@ public class ScoreCameraController : MonoBehaviour
         {
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowSuperGlass(true);
             AudioController.PlaySuperglass();
+            this.camera.transform.DOShakePosition(1.5f, 30f);
             yield return new WaitForSeconds(0.5f);
 
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowScoreText(true, 100);
@@ -108,6 +110,7 @@ public class ScoreCameraController : MonoBehaviour
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowAlmostPerfect(true);
             
             AudioController.PlayAlmostPerfect();
+            this.camera.transform.DOShakePosition(1f, 20f);
             yield return new WaitForSeconds(0.5f);
 
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowScoreText(true, gainedScore);
@@ -118,6 +121,7 @@ public class ScoreCameraController : MonoBehaviour
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowTolerably(true);
             
             AudioController.PlayTolerable();
+            this.camera.transform.DOShakePosition(1f, 10f);
             yield return new WaitForSeconds(0.5f);
 
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowScoreText(true, gainedScore);
@@ -128,6 +132,8 @@ public class ScoreCameraController : MonoBehaviour
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowLame(true);
             
             AudioController.PlayLame();
+            this.camera.transform.DOShakePosition(1f, 10f);
+
             yield return new WaitForSeconds(0.5f);
 
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowScoreText(true, 1);
@@ -165,6 +171,7 @@ public class ScoreCameraController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         FoamAnimator.ResetTrigger("Exit");
         capController.Reset();
+        yield return new WaitForSeconds(0.5f);
         this.pourTransition.enabled = true;
         this.Glass.GetComponent<GlassFill>().ResetFill();
         this.enabled = false;

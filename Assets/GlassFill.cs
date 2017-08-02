@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
+using DG.Tweening;
+
 using UnityEngine;
 
 public class GlassFill : MonoBehaviour
@@ -18,6 +20,7 @@ public class GlassFill : MonoBehaviour
     private ParticleSystem foamParticle;
 
     public AudioController AudioController;
+    public GameObject Camera;
 
     private float fillLevel = 0;
 
@@ -73,6 +76,7 @@ public class GlassFill : MonoBehaviour
 
     public void StartFill(float fillSpeed)
     {
+        Camera.transform.DOShakePosition(0.3f, 0.6f);
         fillLevel = fillLevel + Time.deltaTime * fillSpeed;
         foam.transform.localPosition = Vector3.Lerp(
             startFoamPos,

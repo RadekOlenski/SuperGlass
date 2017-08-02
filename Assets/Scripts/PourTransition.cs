@@ -55,6 +55,12 @@ public class PourTransition : MonoBehaviour
         bottleDeltaPosition = BottlePourPosition - bottleStartPosition;
     }
 
+    private void OnEnable()
+    {
+        this.outputLerp = 0f;
+
+    }
+
     public void Update()
     {
         // Calculate z-axis rotation based on accelerometer input 
@@ -99,6 +105,7 @@ public class PourTransition : MonoBehaviour
             PourStarted = false;
             this.ScoreCameraController.enabled = true;
             this.GameCanvas.enabled = true;
+            enabled = false;
         }
     }
 
