@@ -13,6 +13,7 @@ public class SwipeController : MonoBehaviour
     private Vector2 lastPosition;
 
     public static event Action<SwipeDirection> Swipe;
+    public static event Action Tap;
 
     public enum SwipeDirection
     {
@@ -29,6 +30,8 @@ public class SwipeController : MonoBehaviour
     public void Update()
     {
         if (Input.touchCount == 0) return;
+
+        if (Tap != null) Tap();
 
         if (Input.GetTouch(0).deltaPosition.sqrMagnitude != 0)
         {

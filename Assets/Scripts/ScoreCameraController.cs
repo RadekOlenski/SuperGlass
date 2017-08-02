@@ -9,8 +9,8 @@ using UnityEngine.UI;
 
 public class ScoreCameraController : MonoBehaviour
 {
-
     public AudioController AudioController;
+
     public GameObject Glass;
 
     public GameObject Bottle;
@@ -39,7 +39,6 @@ public class ScoreCameraController : MonoBehaviour
     private Vector3 bottleStartPosition;
 
     private bool coroutineEnded;
-    
 
     public void Awake()
     {
@@ -53,6 +52,7 @@ public class ScoreCameraController : MonoBehaviour
     public void OnEnable()
     {
         SwipeController.Swipe += Restart;
+        SwipeController.Tap += Restart;
         PourRotator.transform.rotation = Quaternion.identity;
         StartCoroutine("CameraAnimation");
     }
@@ -60,6 +60,7 @@ public class ScoreCameraController : MonoBehaviour
     private void OnDisable()
     {
         SwipeController.Swipe -= Restart;
+        SwipeController.Tap -= Restart;
     }
 
     private IEnumerator CameraAnimation()
@@ -82,11 +83,11 @@ public class ScoreCameraController : MonoBehaviour
         {
             FoamAnimator.SetTrigger("Overfill");
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowOverfilled(true);
-            
+
             AudioController.PlayOverfilled();
             this.camera.transform.DOShakePosition(1f, 15f);
             SwipeController.Swipe -= Restart;
-            
+
             yield return new WaitForSeconds(1f);
             restartButton.gameObject.SetActive(true);
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowScoreText(true, 0);
@@ -104,7 +105,7 @@ public class ScoreCameraController : MonoBehaviour
         {
             FoamAnimator.SetTrigger("Almost");
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowAlmostPerfect(true);
-            
+
             AudioController.PlayAlmostPerfect();
             this.camera.transform.DOShakePosition(0.5f, 5f);
             yield return new WaitForSeconds(0.5f);
@@ -115,7 +116,7 @@ public class ScoreCameraController : MonoBehaviour
         {
             FoamAnimator.SetTrigger("Tolerably");
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowTolerably(true);
-            
+
             AudioController.PlayTolerable();
             this.camera.transform.DOShakePosition(0.2f, 5f);
             yield return new WaitForSeconds(0.5f);
@@ -126,7 +127,7 @@ public class ScoreCameraController : MonoBehaviour
         {
             FoamAnimator.SetTrigger("Sad");
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowLame(true);
-            
+
             AudioController.PlayLame();
             this.camera.transform.DOShakePosition(0.2f, 5f);
 
@@ -152,8 +153,14 @@ public class ScoreCameraController : MonoBehaviour
         if (!this.coroutineEnded) return;
         if (swipeDirection == SwipeController.SwipeDirection.Left)
         {
-            StartCoroutine("RestartCoroutine");        
+            StartCoroutine("RestartCoroutine");
         }
+    }
+
+    private void Restart()
+    {
+        if (!this.coroutineEnded) return;
+        StartCoroutine("RestartCoroutine");
     }
 
     private IEnumerator RestartCoroutine()
@@ -162,8 +169,8 @@ public class ScoreCameraController : MonoBehaviour
         this.SummaryPanel.GetComponent<SummaryPanelController>().HideAll();
         this.SummaryPanel.SetActive(false);
         FoamAnimator.SetTrigger("Exit");
-        //FoamAnimator.ResetTrigger("Exit");
 
+        // FoamAnimator.ResetTrigger("Exit");
         yield return new WaitForSeconds(0.5f);
         FoamAnimator.ResetTrigger("Exit");
         capController.Reset();
