@@ -27,6 +27,8 @@ public class ScoreCameraController : MonoBehaviour
 
     public Button restartButton;
 
+    public Animator FoamAnimator;
+
     [SerializeField]
     private PourTransition pourTransition;
 
@@ -82,7 +84,9 @@ public class ScoreCameraController : MonoBehaviour
 
         if (gainedScore <= this.Scores.scoreOverfilled)
         {
+            FoamAnimator.SetTrigger("Overfill");
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowOverfilled(true);
+            
             AudioController.PlayOverfilled();
             SwipeController.Swipe -= Restart;
             
@@ -100,7 +104,9 @@ public class ScoreCameraController : MonoBehaviour
         }
         else if (gainedScore >= this.Scores.scoreAlmostPerfect)
         {
+            FoamAnimator.SetTrigger("Almost");
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowAlmostPerfect(true);
+            
             AudioController.PlayAlmostPerfect();
             yield return new WaitForSeconds(0.5f);
 
@@ -108,7 +114,9 @@ public class ScoreCameraController : MonoBehaviour
         }
         else if (gainedScore >= this.Scores.scoreTolerably)
         {
+            FoamAnimator.SetTrigger("Tolerably");
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowTolerably(true);
+            
             AudioController.PlayTolerable();
             yield return new WaitForSeconds(0.5f);
 
@@ -116,7 +124,9 @@ public class ScoreCameraController : MonoBehaviour
         }
         else if (gainedScore >= this.Scores.scoreLame)
         {
+            FoamAnimator.SetTrigger("Sad");
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowLame(true);
+            
             AudioController.PlayLame();
             yield return new WaitForSeconds(0.5f);
 
@@ -124,6 +134,11 @@ public class ScoreCameraController : MonoBehaviour
         }
 
         yield return new WaitForSeconds(0.5f);
+
+        FoamAnimator.ResetTrigger("Overfill");
+        FoamAnimator.ResetTrigger("Sad");
+        FoamAnimator.ResetTrigger("Almost");
+        FoamAnimator.ResetTrigger("Tolerably");
 
         this.ScoreText.enabled = true;
 
@@ -144,7 +159,11 @@ public class ScoreCameraController : MonoBehaviour
         this.camera.transform.DOMove(this.cameraStartPosition, 1f);
         this.SummaryPanel.GetComponent<SummaryPanelController>().HideAll();
         this.SummaryPanel.SetActive(false);
+        FoamAnimator.SetTrigger("Exit");
+        //FoamAnimator.ResetTrigger("Exit");
+
         yield return new WaitForSeconds(0.5f);
+        FoamAnimator.ResetTrigger("Exit");
         capController.Reset();
         this.pourTransition.enabled = true;
         this.Glass.GetComponent<GlassFill>().ResetFill();

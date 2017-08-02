@@ -334,6 +334,8 @@ MonoBehaviour:
   Superglass: {fileID: 8300000, guid: 1dd25fe107e885a4683c7e1ca1ea9859, type: 3}
   Overfilled: {fileID: 8300000, guid: 5c21465066621044f93741401e1f35e2, type: 3}
   Lame: {fileID: 8300000, guid: 214d05a5e1bd070439bf5769e5692e35, type: 3}
+  Tolerable: {fileID: 8300000, guid: 10814befc5a79454f88aafe34f421fd5, type: 3}
+  AlmostPerfect: {fileID: 8300000, guid: 220f1841a11cc4d47a2c8ded2a509493, type: 3}
 --- !u!114 &114291148520157338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -354,6 +356,7 @@ MonoBehaviour:
   ScoreText: {fileID: 0}
   capController: {fileID: 114412894126202502}
   restartButton: {fileID: 0}
+  FoamAnimator: {fileID: 0}
   pourTransition: {fileID: 114802546630784288}
 --- !u!114 &114412894126202502
 MonoBehaviour:
