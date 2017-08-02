@@ -51,7 +51,7 @@ public class SummaryPanelController : MonoBehaviour
 
     public void ShowScoreText(bool value, int gainedScore = 0)
     {
-        this.scoreText.GetComponent<Text>().text = gainedScore.ToString();
+        this.scoreText.GetComponent<Text>().text = "+ " + gainedScore.ToString();
         this.scoreText.SetActive(value);
     }
 
