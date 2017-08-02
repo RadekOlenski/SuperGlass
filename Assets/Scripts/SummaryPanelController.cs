@@ -55,4 +55,13 @@ public class SummaryPanelController : MonoBehaviour
         this.scoreText.SetActive(value);
     }
 
+    public void HideAll()
+    {
+        this.overfilled.SetActive(false);
+        superGlass.SetActive(false);
+        this.almostPerfect.SetActive(false);
+        this.tolerably.SetActive(false);
+        this.lame.SetActive(false);
+        this.scoreText.SetActive(false);
+    }
 }

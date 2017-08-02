@@ -17,15 +17,16 @@ public class GameController : MonoBehaviour
 
     private bool scoreAdded = false;
 
-    private float timer, wait = 2;
+    private float timer;
+
+    private float wait = 2;
 
     private void Update()
     {
         if (pt.PourStarted)
         {
             scoreAdded = false;
-            if(timer >= wait)
-                gf.StartFill(scores.fillSpeed);
+            if (timer >= wait) gf.StartFill(scores.fillSpeed);
 
             timer += Time.deltaTime;
         }
@@ -52,11 +53,12 @@ public class GameController : MonoBehaviour
                 {
                     scores.AddScore(Mathf.RoundToInt(Mathf.PingPong((float)score, 1) * scores.scorePerfectGlass));
                 }
+
                 scoreAdded = true;
                 Debug.Log("Score: " + scores.GetCurrentScore());
+                this.pt.PourEnding = false;
+                this.pt.enabled = false;
             }
-
-            this.pt.enabled = false;
         }
     }
 
