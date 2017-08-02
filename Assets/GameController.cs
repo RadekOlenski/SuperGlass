@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    public AudioController AudioController;
+
     [SerializeField]
     private Scores scores;
 
@@ -19,6 +21,8 @@ public class GameController : MonoBehaviour
 
     private float timer;
 
+    private bool audioPlaying;
+
     private float wait = 1;
 
     private void Update()
@@ -26,7 +30,15 @@ public class GameController : MonoBehaviour
         if (CapController.isBottleOpened &&  pt.PourStarted)
         {
             scoreAdded = false;
-            if (timer >= wait) gf.StartFill(scores.fillSpeed);
+            if (!this.audioPlaying)
+            {
+                AudioController.PlayBottleFill();
+                this.audioPlaying = true;
+            }
+            if (timer >= wait)
+            {
+                gf.StartFill(scores.fillSpeed);
+            }
 
             timer += Time.deltaTime;
         }
@@ -58,6 +70,7 @@ public class GameController : MonoBehaviour
                 Debug.Log("Score: " + scores.GetCurrentScore());
                 this.pt.PourEnding = false;
                 this.pt.enabled = false;
+                this.audioPlaying = false;
             }
         }
     }

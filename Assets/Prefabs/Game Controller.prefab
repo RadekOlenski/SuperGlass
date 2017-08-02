@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c774554c2e09a9243a0e233993bba5be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioController: {fileID: 0}
   scores: {fileID: 11400000, guid: dc700fee202986340be8b596404c19d3, type: 2}
   pt: {fileID: 0}
   gf: {fileID: 0}

@@ -7,6 +7,10 @@ public class CapController : MonoBehaviour
     public static bool isBottleOpened = false;
     public ParticleSystem particle;
 
+    public AudioController AudioController;
+
+    private bool audioPlayed;
+
     public void OnEnable()
     {
         SwipeController.Swipe += OpenBottle;
@@ -24,6 +28,11 @@ public class CapController : MonoBehaviour
             GetComponent<Animator>().SetTrigger("Open");
             particle.Play();
             isBottleOpened = true;
+            if (!this.audioPlayed)
+            {
+                AudioController.PlayBottleOpen();
+                this.audioPlayed = true;
+            }
         }
     }
 
@@ -33,5 +42,6 @@ public class CapController : MonoBehaviour
         GetComponent<Animator>().ResetTrigger("Open");
         GetComponent<Animator>().SetTrigger("Exit");
         particle.Stop();
+        this.audioPlayed = false;
     }
 }
