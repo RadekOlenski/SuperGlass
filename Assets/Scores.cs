@@ -26,6 +26,8 @@ public class Scores : ScriptableObject
         currentScore += value;
         if (highScore < currentScore)
             highScore = currentScore;
+
+        PlayerPrefs.SetInt("HighScore", highScore);
     }
 
     public void ResetCurrentScore()
@@ -35,6 +37,8 @@ public class Scores : ScriptableObject
 
     public int GetHighScore()
     {
+        if(PlayerPrefs.HasKey("HighScore"))
+            highScore = PlayerPrefs.GetInt("HighScore");
         return highScore;
     }
 
