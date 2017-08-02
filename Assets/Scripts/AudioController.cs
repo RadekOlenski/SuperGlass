@@ -14,6 +14,7 @@ public class AudioController : MonoBehaviour
     public AudioClip Overfilled;
     public AudioClip Lame;
     public AudioClip Tolerable;
+    public AudioClip AlmostPerfect;
 
     public void PlayBottleOpen()
     {
@@ -54,6 +55,12 @@ public class AudioController : MonoBehaviour
     public void PlayTolerable()
     {
         this.AudioSource.clip = this.Tolerable;
+        this.AudioSource.Play();
+    }
+
+    public void PlayAlmostPerfect()
+    {
+        this.AudioSource.clip = this.AlmostPerfect;
         this.AudioSource.Play();
     }
 

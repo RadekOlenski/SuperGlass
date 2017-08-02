@@ -101,6 +101,7 @@ public class ScoreCameraController : MonoBehaviour
         else if (gainedScore >= this.Scores.scoreAlmostPerfect)
         {
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowAlmostPerfect(true);
+            AudioController.PlayAlmostPerfect();
             yield return new WaitForSeconds(0.5f);
 
             this.SummaryPanel.GetComponent<SummaryPanelController>().ShowScoreText(true, gainedScore);

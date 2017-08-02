@@ -402,6 +402,11 @@ Prefab:
       propertyPath: Tolerable
       value: 
       objectReference: {fileID: 8300000, guid: 10814befc5a79454f88aafe34f421fd5, type: 3}
+    - target: {fileID: 114106100202862148, guid: 805fa1639f8e025469f3420accaf8e03,
+        type: 2}
+      propertyPath: AlmostPerfect
+      value: 
+      objectReference: {fileID: 8300000, guid: 220f1841a11cc4d47a2c8ded2a509493, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 805fa1639f8e025469f3420accaf8e03, type: 2}
   m_IsPrefabParent: 0
